@@ -6,13 +6,13 @@
 #
 Name     : filelight
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/filelight-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/filelight-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/filelight-18.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GFDL-1.2
+License  : GFDL-1.2 GPL-2.0
 Requires: filelight-bin
 Requires: filelight-data
 Requires: filelight-license
@@ -77,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535167705
+export SOURCE_DATE_EPOCH=1535425549
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -85,9 +85,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535167705
+export SOURCE_DATE_EPOCH=1535425549
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/filelight
+cp COPYING %{buildroot}/usr/share/doc/filelight/COPYING
 cp COPYING-DOCS %{buildroot}/usr/share/doc/filelight/COPYING-DOCS
 pushd clr-build
 %make_install
@@ -112,6 +113,7 @@ popd
 /usr/share/icons/hicolor/64x64/apps/filelight.png
 /usr/share/kxmlgui5/filelight/filelightui.rc
 /usr/share/metainfo/org.kde.filelight.appdata.xml
+/usr/share/xdg/filelightrc
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -158,6 +160,7 @@ popd
 
 %files license
 %defattr(-,root,root,-)
+/usr/share/doc/filelight/COPYING
 /usr/share/doc/filelight/COPYING-DOCS
 
 %files locales -f filelight.lang
