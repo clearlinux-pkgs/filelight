@@ -5,21 +5,21 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : filelight
-Version  : 18.08.0
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.08.0/src/filelight-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/filelight-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/filelight-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 3
+URL      : https://download.kde.org/stable/applications/18.12.2/src/filelight-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/filelight-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/filelight-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
-Requires: filelight-bin
-Requires: filelight-data
-Requires: filelight-license
-Requires: filelight-locales
+Requires: filelight-bin = %{version}-%{release}
+Requires: filelight-data = %{version}-%{release}
+Requires: filelight-license = %{version}-%{release}
+Requires: filelight-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 # Filelight
@@ -30,8 +30,8 @@ segmented-rings.
 %package bin
 Summary: bin components for the filelight package.
 Group: Binaries
-Requires: filelight-data
-Requires: filelight-license
+Requires: filelight-data = %{version}-%{release}
+Requires: filelight-license = %{version}-%{release}
 
 %description bin
 bin components for the filelight package.
@@ -70,26 +70,26 @@ locales components for the filelight package.
 
 
 %prep
-%setup -q -n filelight-18.08.0
+%setup -q -n filelight-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535425549
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549860307
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535425549
+export SOURCE_DATE_EPOCH=1549860307
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/filelight
-cp COPYING %{buildroot}/usr/share/doc/filelight/COPYING
-cp COPYING-DOCS %{buildroot}/usr/share/doc/filelight/COPYING-DOCS
+mkdir -p %{buildroot}/usr/share/package-licenses/filelight
+cp COPYING %{buildroot}/usr/share/package-licenses/filelight/COPYING
+cp COPYING-DOCS %{buildroot}/usr/share/package-licenses/filelight/COPYING-DOCS
 pushd clr-build
 %make_install
 popd
@@ -159,9 +159,9 @@ popd
 /usr/share/doc/HTML/uk/filelight/radial_map_context_menu.png
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/filelight/COPYING
-/usr/share/doc/filelight/COPYING-DOCS
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/filelight/COPYING
+/usr/share/package-licenses/filelight/COPYING-DOCS
 
 %files locales -f filelight.lang
 %defattr(-,root,root,-)
