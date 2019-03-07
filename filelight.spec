@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : filelight
-Version  : 18.12.2
-Release  : 4
-URL      : https://download.kde.org/stable/applications/18.12.2/src/filelight-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/filelight-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/filelight-18.12.2.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.3
+Release  : 5
+URL      : https://download.kde.org/stable/applications/18.12.3/src/filelight-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/filelight-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/filelight-18.12.3.tar.xz.sig
+Summary  : View disk usage information
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
 Requires: filelight-bin = %{version}-%{release}
@@ -70,22 +70,23 @@ locales components for the filelight package.
 
 
 %prep
-%setup -q -n filelight-18.12.2
+%setup -q -n filelight-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549879071
+export SOURCE_DATE_EPOCH=1551983391
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549879071
+export SOURCE_DATE_EPOCH=1551983391
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/filelight
 cp COPYING %{buildroot}/usr/share/package-licenses/filelight/COPYING
