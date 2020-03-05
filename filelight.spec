@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : filelight
-Version  : 19.12.2
-Release  : 18
-URL      : https://download.kde.org/stable/release-service/19.12.2/src/filelight-19.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.2/src/filelight-19.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.2/src/filelight-19.12.2.tar.xz.sig
+Version  : 19.12.3
+Release  : 19
+URL      : https://download.kde.org/stable/release-service/19.12.3/src/filelight-19.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.3/src/filelight-19.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.3/src/filelight-19.12.3.tar.xz.sig
 Summary  : View disk usage information
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -70,15 +70,15 @@ locales components for the filelight package.
 
 
 %prep
-%setup -q -n filelight-19.12.2
-cd %{_builddir}/filelight-19.12.2
+%setup -q -n filelight-19.12.3
+cd %{_builddir}/filelight-19.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581012055
+export SOURCE_DATE_EPOCH=1583434946
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -95,11 +95,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1581012055
+export SOURCE_DATE_EPOCH=1583434946
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/filelight
-cp %{_builddir}/filelight-19.12.2/COPYING %{buildroot}/usr/share/package-licenses/filelight/4b345b7da7f2ee919adfb971f728fcc666653c7e
-cp %{_builddir}/filelight-19.12.2/COPYING-DOCS %{buildroot}/usr/share/package-licenses/filelight/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/filelight-19.12.3/COPYING %{buildroot}/usr/share/package-licenses/filelight/4b345b7da7f2ee919adfb971f728fcc666653c7e
+cp %{_builddir}/filelight-19.12.3/COPYING-DOCS %{buildroot}/usr/share/package-licenses/filelight/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
