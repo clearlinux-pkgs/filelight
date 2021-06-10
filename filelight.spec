@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : filelight
-Version  : 21.04.0
-Release  : 29
-URL      : https://download.kde.org/stable/release-service/21.04.0/src/filelight-21.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.0/src/filelight-21.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.0/src/filelight-21.04.0.tar.xz.sig
+Version  : 21.04.2
+Release  : 30
+URL      : https://download.kde.org/stable/release-service/21.04.2/src/filelight-21.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.2/src/filelight-21.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.2/src/filelight-21.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 GPL-3.0
+License  : GFDL-1.2 GPL-2.0 GPL-3.0
 Requires: filelight-bin = %{version}-%{release}
 Requires: filelight-data = %{version}-%{release}
 Requires: filelight-license = %{version}-%{release}
@@ -74,15 +74,15 @@ locales components for the filelight package.
 
 
 %prep
-%setup -q -n filelight-21.04.0
-cd %{_builddir}/filelight-21.04.0
+%setup -q -n filelight-21.04.2
+cd %{_builddir}/filelight-21.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1619203109
+export SOURCE_DATE_EPOCH=1623363072
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -98,12 +98,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1619203109
+export SOURCE_DATE_EPOCH=1623363072
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/filelight
-cp %{_builddir}/filelight-21.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/filelight/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/filelight-21.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/filelight-21.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/filelight-21.04.2/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/filelight/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
+cp %{_builddir}/filelight-21.04.2/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/filelight/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/filelight-21.04.2/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/filelight-21.04.2/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
 pushd clr-build
 %make_install
 popd
@@ -177,6 +178,7 @@ popd
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/filelight/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 /usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/filelight/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
 
 %files locales -f filelight.lang
 %defattr(-,root,root,-)
