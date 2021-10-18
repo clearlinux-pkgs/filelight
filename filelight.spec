@@ -4,7 +4,7 @@
 #
 Name     : filelight
 Version  : 21.08.2
-Release  : 32
+Release  : 33
 URL      : https://download.kde.org/stable/release-service/21.08.2/src/filelight-21.08.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.08.2/src/filelight-21.08.2.tar.xz
 Summary  : No detailed summary available
