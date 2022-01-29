@@ -6,7 +6,7 @@
 #
 Name     : filelight
 Version  : 21.12.1
-Release  : 36
+Release  : 37
 URL      : https://download.kde.org/stable/release-service/21.12.1/src/filelight-21.12.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.12.1/src/filelight-21.12.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/21.12.1/src/filelight-21.12.1.tar.xz.sig
@@ -82,7 +82,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641947911
+export SOURCE_DATE_EPOCH=1643435295
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -98,7 +98,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1641947911
+export SOURCE_DATE_EPOCH=1643435295
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/filelight
 cp %{_builddir}/filelight-21.12.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/filelight/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
@@ -130,6 +130,7 @@ popd
 /usr/share/kxmlgui5/filelight/filelightui.rc
 /usr/share/metainfo/org.kde.filelight.appdata.xml
 /usr/share/qlogging-categories5/filelight.categories
+/usr/share/xdg/filelightrc
 
 %files doc
 %defattr(0644,root,root,0755)
