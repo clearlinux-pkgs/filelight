@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : filelight
-Version  : 22.04.0
-Release  : 40
-URL      : https://download.kde.org/stable/release-service/22.04.0/src/filelight-22.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.04.0/src/filelight-22.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.04.0/src/filelight-22.04.0.tar.xz.sig
+Version  : 22.04.1
+Release  : 41
+URL      : https://download.kde.org/stable/release-service/22.04.1/src/filelight-22.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.1/src/filelight-22.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.1/src/filelight-22.04.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 GPL-3.0
@@ -72,15 +72,15 @@ locales components for the filelight package.
 
 
 %prep
-%setup -q -n filelight-22.04.0
-cd %{_builddir}/filelight-22.04.0
+%setup -q -n filelight-22.04.1
+cd %{_builddir}/filelight-22.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1650669155
+export SOURCE_DATE_EPOCH=1652646563
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -96,14 +96,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1650669155
+export SOURCE_DATE_EPOCH=1652646563
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/filelight
-cp %{_builddir}/filelight-22.04.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/filelight/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
-cp %{_builddir}/filelight-22.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/filelight/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/filelight-22.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/filelight/2123756e0b1fc8243547235a33c0fcabfe3b9a51
-cp %{_builddir}/filelight-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/filelight-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/filelight-22.04.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/filelight/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
+cp %{_builddir}/filelight-22.04.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/filelight/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/filelight-22.04.1/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/filelight/2123756e0b1fc8243547235a33c0fcabfe3b9a51
+cp %{_builddir}/filelight-22.04.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/filelight-22.04.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/filelight/7d9831e05094ce723947d729c2a46a09d6e90275
 pushd clr-build
 %make_install
 popd
@@ -132,6 +132,8 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
+/usr/share/doc/HTML/ca/filelight/index.cache.bz2
+/usr/share/doc/HTML/ca/filelight/index.docbook
 /usr/share/doc/HTML/de/filelight/config_appear.png
 /usr/share/doc/HTML/de/filelight/config_scan.png
 /usr/share/doc/HTML/de/filelight/index.cache.bz2
