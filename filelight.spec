@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : filelight
-Version  : 23.08.3
-Release  : 62
-URL      : https://download.kde.org/stable/release-service/23.08.3/src/filelight-23.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.3/src/filelight-23.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.3/src/filelight-23.08.3.tar.xz.sig
+Version  : 23.08.4
+Release  : 63
+URL      : https://download.kde.org/stable/release-service/23.08.4/src/filelight-23.08.4.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.4/src/filelight-23.08.4.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.4/src/filelight-23.08.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 GPL-3.0
@@ -76,15 +76,15 @@ locales components for the filelight package.
 
 
 %prep
-%setup -q -n filelight-23.08.3
-cd %{_builddir}/filelight-23.08.3
+%setup -q -n filelight-23.08.4
+cd %{_builddir}/filelight-23.08.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701955190
+export SOURCE_DATE_EPOCH=1702959589
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -143,7 +143,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701955190
+export SOURCE_DATE_EPOCH=1702959589
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/filelight
 cp %{_builddir}/filelight-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/filelight/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc || :
